@@ -121,6 +121,7 @@ public class HomeMiddleware {
 				}
 
 			}
+			Thread.sleep(2000);
 			URL = ValidateLink(dict.TopCities, dict.MummbaiCity);
 			if (URL.contains("mumbai")) {
 				System.out.println("Top city link is verified");
@@ -128,6 +129,7 @@ public class HomeMiddleware {
 				System.out.println("Top Cities link is not verified");
 				return false;
 			}
+			Thread.sleep(2000);
 			URL = ValidateLink(dict.TopBuilder, dict.DLF);
 			if (URL.contains("dlf")) {
 				System.out.println("Top builder is verified");
@@ -135,7 +137,7 @@ public class HomeMiddleware {
 				System.out.println("Top Builder link is not verified");
 				return false;
 			}
-
+			Thread.sleep(2000);
 			URL = ValidateLink(dict.TopBrokers, dict.AbbeyHomes);
 			if (URL.contains("all")) {
 				System.out.println("Top broker is verified");
@@ -178,7 +180,7 @@ public class HomeMiddleware {
 		wb.ClickbyXpath(dict.MenuDrawer);
 		Thread.sleep(2000);
 		if (wb.IsElementPresent(Type)) {
-			System.out.println("Top Builder in drawer is present");
+			System.out.println("Link in drawer is present");
 			wb.ClickbyXpath(Type);
 			Thread.sleep(2000);
 			URL = NewTab(Subtype);
@@ -192,10 +194,12 @@ public class HomeMiddleware {
 	}
 
 	public String NewTab(String Path) throws Exception {
-		wb.ClickbyXpath(Path);
 		Thread.sleep(2000);
+		wb.ClickbyXpath(Path);
+		Thread.sleep(4000);
 		String URL = wb.CurrentURL();
 		Thread.sleep(2000);
+		System.out.println("Current URL found is: "+URL);
 		wb.Back();
 		return URL;
 	}

@@ -6,9 +6,7 @@
 			
 			
 			<class name="com.makaan.Test.HomeTest" />
-			<class name="com.makaan.Test.PYRTest" />
-			<class name="com.makaan.Test.SearchTest" />
-			<class name="com.makaan.Test.SERPTest" />
+			
 
 
 
