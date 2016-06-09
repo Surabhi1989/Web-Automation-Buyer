@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+    <property name="src.dir" value="src" />
+    <property name="lib.dir" value="lib" />
+    <property name="log.dir" value="logs" />
+    <property name="build.dir" value="build" />
+    <property name="classes.dir" value="classes" />
+    <property name="reports.dir" value="reports" />
+    <property name="testNG.report" value="${reports.dir}/TestNG" />
+    <property name="suite.dir" value="suite" />
+    <!-- Class-Path -->
+    <path id="classpath">
+        <pathelement location="${classes.dir}"/>
+        <fileset dir="${lib.dir}" includes="*.jar"/>
+    </path>
+    <!-- Delete directories that are not needed -->
+    <target name="delete-dir" >
+            <delete dir="${build.dir}"/>
+            <delete dir="${reports.dir}"/>
+            <delete dir="${classes.dir}"/>
+            <echo> /* Deleted existing Compiled Directory Classes */ </echo>
+    </target>
+    <!-- Create Directories -->
+    <target name="create-source-dir" depends="delete-dir">
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${reports.dir}"/>       
+        <mkdir dir="${testNG.report}"/>
+        <echo> /* Created Directories */ </echo>
+    </target>
+    <!-- Compiling Tests -->
+    <target name="compile-classes" depends="create-source-dir">
+        <javac destdir="${classes.dir}" includeantruntime="false" debug="true" srcdir="${src.dir}">
+            <classpath refid="classpath"/>
+        </javac>
+        <echo> /* Compiled Directory Classes */ </echo>
+    </target>
+    <!-- Running Tests and TestNG report generation -->
+    <target name="testNGreport" depends="compile-classes">
+        <taskdef resource="testngtasks" classpathref="classpath"/>
+        <testng classpathref="classpath" outputDir="${testNG.report}" haltOnfailure="false">
+              <xmlfileset dir="." includes="testng.xml" />
+        </testng>
+        <echo> /* Run Directory Classes */ </echo>
+    </target>
+   
+       
+</project>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="Test">
+		<classes>
+			
+			
+			<class name="com.makaan.Test.HomeTest" />
+			<class name="com.makaan.Test.PYRTest" />
+			<class name="com.makaan.Test.SearchTest" />
+			<class name="com.makaan.Test.SERPTest" />
+
+
+
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

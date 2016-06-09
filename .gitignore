@@ -1,0 +1,7 @@
+.classpath
+.project
+.settings/
+.~lock.Ant.xml#
+bin/
+classes/
+test-output/
