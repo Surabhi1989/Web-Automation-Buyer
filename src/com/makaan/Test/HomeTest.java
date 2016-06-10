@@ -60,8 +60,8 @@ public class HomeTest {
 		}
 	}
 	
-	//@Test(priority = 4)
-	 @Test (enabled = false)
+	@Test(priority = 4)
+	// @Test (enabled = false)
 	public void MenuDrawer() throws Exception {
 		System.out.println("Inside Test Validate Menu Drawer");
 		if (hm.VerifyMenuDrawer()) {
