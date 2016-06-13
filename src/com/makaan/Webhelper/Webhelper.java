@@ -31,6 +31,7 @@ public class Webhelper {
 		profile.setPreference("startup.homepage_welcome_url", "about:blank");
 		profile.setPreference("startup.homepage_welcome_url.additional", "about:blank");
 		profile.setPreference("browser.startup.homepage", "about:blank");
+		System.setProperty("webdriver.firefox.bin", "/usr/bin/firefox");
 		driver = new FirefoxDriver(profile);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
